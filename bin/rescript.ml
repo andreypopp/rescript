@@ -196,6 +196,9 @@ module Build = struct
           end
       | [] -> objects
     in
+
+    let filename = Fs.realpath filename in
+
     let root = Module.{
       id = makeId filename;
       src = Local filename
