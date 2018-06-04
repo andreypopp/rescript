@@ -41,7 +41,6 @@ Which will compile dependencies and run it.
 
 ## TODO
 
-- Cache compiled executables / object files
 - Process `*.re` with `refmt`
 - Figure out how to integrate with Merlin
 - Release as esy release
