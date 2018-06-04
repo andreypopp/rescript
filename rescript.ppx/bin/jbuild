@@ -1,0 +1,5 @@
+(executable
+ ((name rescript_ppx)
+  (public_name rescript-ppx)
+  (modules (rescript_ppx))
+  (libraries (rescript.ppx ppxlib))))

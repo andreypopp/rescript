@@ -1,0 +1,9 @@
+(jbuild_version 1)
+
+(library
+ ((name rescript.ppx)
+   (public_name rescript.ppx)
+   (wrapped false)
+   (kind ppx_rewriter)
+   (libraries (ppxlib))
+   (preprocess (pps (ppxlib.metaquot)))))

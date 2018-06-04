@@ -1,0 +1,27 @@
+{
+  "name": "rescript",
+  "version": "0.1.0",
+  "description": "Rescript is a scripting runtime for ReasonML",
+  "license": "MIT",
+  "esy": {
+    "build": [
+      "jbuilder build"
+    ],
+    "install": [
+      "esy-installer"
+    ],
+    "buildsInSource": "_build"
+  },
+  "dependencies": {
+    "@esy-ocaml/esy-installer": "^0.0.0",
+    "@opam/jbuilder": "*",
+    "@opam/ppxlib": "*"
+  },
+  "peerDependencies": {
+    "ocaml": "~4.6.1"
+  },
+  "devDependencies": {
+    "@opam/merlin": "^3.0.3",
+    "ocaml": "~4.6.1"
+  }
+}

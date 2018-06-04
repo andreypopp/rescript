@@ -1,0 +1,23 @@
+lib: [
+  "_build/install/default/lib/rescript/META" {"META"}
+  "_build/install/default/lib/rescript/opam" {"opam"}
+  "_build/install/default/lib/rescript/ppx/rescript_ppx_import.cmi" {"ppx/rescript_ppx_import.cmi"}
+  "_build/install/default/lib/rescript/ppx/rescript_ppx_import.cmx" {"ppx/rescript_ppx_import.cmx"}
+  "_build/install/default/lib/rescript/ppx/rescript_ppx_import.cmt" {"ppx/rescript_ppx_import.cmt"}
+  "_build/install/default/lib/rescript/ppx/rescript_ppx_import.ml" {"ppx/rescript_ppx_import.ml"}
+  "_build/install/default/lib/rescript/ppx/rescript.ppx.cma" {"ppx/rescript.ppx.cma"}
+  "_build/install/default/lib/rescript/ppx/rescript.ppx.cmxa" {"ppx/rescript.ppx.cmxa"}
+  "_build/install/default/lib/rescript/ppx/rescript.ppx.a" {"ppx/rescript.ppx.a"}
+  "_build/install/default/lib/rescript/ppx/rescript.ppx.cmxs" {"ppx/rescript.ppx.cmxs"}
+  "_build/install/default/lib/rescript/ppx/rescript.ppx.dune" {"ppx/rescript.ppx.dune"}
+]
+libexec: [
+  "_build/install/default/lib/rescript/ppx/ppx.exe" {"ppx/ppx.exe"}
+]
+bin: [
+  "_build/install/default/bin/rescript-ppx" {"rescript-ppx"}
+  "_build/install/default/bin/rescript" {"rescript"}
+]
+doc: [
+  "_build/install/default/doc/rescript/README.md"
+]

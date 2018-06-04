@@ -1,0 +1,8 @@
+(jbuild_version 1)
+
+(executable
+ ((name rescript)
+  (package rescript)
+  (libraries (unix ppxlib rescript.ppx))
+  (preprocess (pps (ppxlib.metaquot)))
+  (public_name rescript)))

@@ -1,0 +1,13 @@
+npm-debug.log
+test
+.merlin
+yarn-error.log
+node_modules/
+_build
+_esybuild
+_esyinstall
+_release
+*.byte
+*.native
+esy.lock
+esy-ocaml-project.install
