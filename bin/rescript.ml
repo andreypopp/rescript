@@ -149,10 +149,18 @@ module Build = struct
 
   let libRoot =
     let path = (Fs.homedir ()) ^ "/.rescript/lib" in
-    Fs.mkdirp path;
+    (match Unix.stat path with
+    | exception _ -> Fs.mkdirp path
+    | _ -> ());
     path
 
   let libPath filename ext = libRoot ^ "/" ^ filename ^ "." ^ ext
+
+  let needRebuild ~src ~out () =
+    let srcStat = Unix.stat src in
+    match Unix.stat out with
+    | exception _ -> true
+    | outStat -> outStat.Unix.st_mtime < srcStat.Unix.st_mtime
 
   let build filename =
     let rec aux ~seen ~objects queue =
@@ -175,8 +183,11 @@ module Build = struct
             let objects = aux ~seen ~objects queue in
 
             let () =
-              Fs.copyFile ~src:filename ~dst:libFilename ();
-              Ocamlopt.makeObj ~buildDir:libRoot ~filename:libFilename ()
+              if needRebuild ~src:filename ~out:objFilename ()
+              then (
+                Fs.copyFile ~src:filename ~dst:libFilename ();
+                Ocamlopt.makeObj ~buildDir:libRoot ~filename:libFilename ()
+              ) else ()
             in
 
             objects
@@ -189,13 +200,20 @@ module Build = struct
       id = makeId filename;
       src = Local filename
     } in
-    let objects = aux ~seen:StringSet.empty ~objects:[] [root] in
+
     let execFilename = libPath root.id "exe" in
-    Ocamlopt.makeExecutable
-      ~buildDir:libRoot
-      ~objects
-      ~out:(Filename.basename execFilename)
+
+    if needRebuild ~src:filename ~out:execFilename ()
+    then
+      let objects = aux ~seen:StringSet.empty ~objects:[] [root] in
+      Ocamlopt.makeExecutable
+        ~buildDir:libRoot
+        ~objects
+        ~out:(Filename.basename execFilename)
+        ()
+    else
       ();
+
     execFilename
 
 end
