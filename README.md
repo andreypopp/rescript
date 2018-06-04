@@ -45,6 +45,7 @@ Which will compile dependencies and run it.
 - Process `*.re` with `refmt`
 - Figure out how to integrate with Merlin
 - Release as esy release
+- Rewrite module ids back to `[%import "..."]` syntax in compiler error messages
 - Support running via shebang line
 - Fetch remote URLs `[%import "https://gist..."]`
 - Fetch esy packages from npm / opam
