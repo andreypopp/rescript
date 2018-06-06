@@ -1,5 +1,8 @@
 # rescript
 
+**This is a Proof Of Concept quality, do not use, see TODO below if you want to
+help**
+
 Rescript is a scripting runtime for ReasonML.
 
 Rescript allows to write executable programs in ReasonML, specify external
